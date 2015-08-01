@@ -1,6 +1,5 @@
 package org.neos.hibernate.test;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -14,6 +13,7 @@ public class HibernateRegion {
 
 	private static SessionFactory factory;
 
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 
 		factory = new Configuration().configure().buildSessionFactory();
