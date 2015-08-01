@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="org.neos.hibernate.domain.Region" table="regions" catalog="hr">
+		<id name="idRegion" type="java.lang.Integer">
+			<column name="REGION_ID" />
+			<generator class="identity" /><!-- La base de datos sera la 
+				encargada de generar el id -->
+		</id>
+
+		<property name="nameRegion" column="REGION_NAME" type="string" />
+
+	</class>
+</hibernate-mapping>
