@@ -18,7 +18,7 @@
 		<property name="connection.pool_size">1</property>
 		<!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
-        <mapping resource="hbmx/regions.hbm.xml"></mapping>
+        <mapping resource="hbmx/region.hbm.xml"></mapping>
    
     </session-factory>
 </hibernate-configuration>
