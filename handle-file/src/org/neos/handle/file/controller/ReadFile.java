@@ -1,10 +1,6 @@
 package org.neos.handle.file.controller;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -14,6 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.neos.handle.file.business.FileUtils;
 
 /**
  * Servlet implementation class ReadFile
@@ -53,15 +51,7 @@ public class ReadFile extends HttpServlet {
 		BufferedReader br = null;
 		String cadenaFinal="";
 		try{
-			System.out.println("file:"+pathname);
-			String sCurrentLine;
-			 
-			br = new BufferedReader(new FileReader(pathname));
- 
-			while ((sCurrentLine = br.readLine()) != null) {
-				System.out.println(sCurrentLine);
-				cadenaFinal +=sCurrentLine;
-			}
+			cadenaFinal=FileUtils.readFile(pathname);
 			
 		}catch(Exception e){
 			e.printStackTrace();
@@ -77,9 +67,5 @@ public class ReadFile extends HttpServlet {
 		   
 	}
 		
-		
-		//RequestDispatcher forward = request.getRequestDispatcher("/seccessfulRead.jsp");
-		//forward.include(request, response);
-	//}
 
 }

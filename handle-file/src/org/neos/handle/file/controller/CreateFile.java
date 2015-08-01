@@ -1,18 +1,17 @@
 package org.neos.handle.file.controller;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.neos.handle.file.business.FileUtils;
 
 /**
  * Servlet implementation class CreateFile
@@ -44,7 +43,6 @@ public class CreateFile extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException   {
 		System.out.println("EN EL SERVLET PARA CREAR EL ARCHIVO...");
 		
-		//String nameFile = request.getParameter("nameFile");
 		String nameFile = "cliente.txt";
 		String content = request.getParameter("message");
 		String view="successfulWrite.jsp";
@@ -53,20 +51,10 @@ public class CreateFile extends HttpServlet {
 		String pathname =context.getRealPath(path+nameFile); 
 		RequestDispatcher forward;
 		try{
-			System.out.println("file:"+pathname);
-			File file = new File(pathname);
 			
-			if (!file.exists()) {
-					file.createNewFile();
+			if(!FileUtils.createFile(pathname, content)){
+				view="error.jsp";
 			}
-			 
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(content);
-			bw.close();
-			 
-			
-			
 			
 		}catch(Exception e){
 			
