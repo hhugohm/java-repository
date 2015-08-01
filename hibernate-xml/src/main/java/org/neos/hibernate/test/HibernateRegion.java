@@ -17,13 +17,13 @@ public class HibernateRegion {
 	public static void main(String[] args) {
 
 		factory = new Configuration().configure().buildSessionFactory();
-		HibernateRegion manager = new HibernateRegion();
+		HibernateRegion persistence = new HibernateRegion();
 
-		manager.listRegions();
+		persistence.listAllRegions();
 		factory.close();
 	}
 
-	public void listRegions() {
+	public void listAllRegions() {
 
 		Session session = factory.openSession();
 		Transaction txt = null;
