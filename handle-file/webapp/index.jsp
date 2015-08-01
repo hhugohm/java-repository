@@ -13,7 +13,7 @@
 <table>
 	<tr>
 		<td>Mensaje archivo</td>
-		<td><input  type="text"  name="message" value=""   ></td>
+		<td><textarea name="message"  rows="4" cols="50" ></textarea></td>
 	</tr>
 	<tr>
 		<td><input type="submit" value="Create File"></td>

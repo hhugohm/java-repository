@@ -18,7 +18,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td><textarea rows="4" cols="50" ><%=request.getAttribute("cadenaFinal")%></textarea></td>
+		<td><textarea   rows="4" cols="50" ><%=request.getAttribute("cadenaFinal")%></textarea></td>
 	</tr>
 </table>
 

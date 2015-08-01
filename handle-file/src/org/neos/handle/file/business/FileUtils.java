@@ -48,7 +48,7 @@ public class FileUtils {
  
 			while ((sCurrentLine = br.readLine()) != null) {
 				System.out.println(sCurrentLine);
-				cadenaFinal +=sCurrentLine;
+				cadenaFinal = cadenaFinal+ " "+ sCurrentLine;
 			}
 			
 		}catch(Exception e){
