@@ -17,7 +17,7 @@ public class BusinessService implements IBusinessService{
 
 	@Override
 	@GET
-	@Path("/{param}")
+	@Path("/messageService/{param}")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getMessageService(@PathParam("param")String name){
 		System.out.println("entrando en el webrsevice...");

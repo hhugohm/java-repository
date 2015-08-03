@@ -31,7 +31,7 @@ public class RestTest {
 		URI serviceURI = UriBuilder.fromUri(webServiceURI).build();
 		WebTarget webTarget = client.target(serviceURI);
 		
-		System.out.println(webTarget.path("rest").path("businessService").path("HUGO").request().accept(MediaType.TEXT_PLAIN).get(String.class));
+		System.out.println(webTarget.path("rest").path("businessService").path("messageService").path("HUGO").request().accept(MediaType.TEXT_PLAIN).get(String.class));
 
 		// response
 		System.out.println(webTarget.path("rest").path("businessService").request().accept(MediaType.TEXT_PLAIN).get(Response.class).toString());
