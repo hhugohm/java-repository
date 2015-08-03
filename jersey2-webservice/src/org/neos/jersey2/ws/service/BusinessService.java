@@ -6,6 +6,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * 
+ * @author Hector Hugo Hidalgo
+ * 03/08/2015
+ *
+ */
 @Path("/businessService")
 public class BusinessService implements IBusinessService{
 

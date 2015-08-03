@@ -15,6 +15,12 @@ import javax.ws.rs.core.UriBuilder;
 
 import org.glassfish.jersey.client.ClientConfig;
 
+/**
+ * 
+ * @author Hector Hugo Hidalgo
+ * 03/08/2015
+ *
+ */
 public class RestTest {
 	
 	private static final String webServiceURI = "http://localhost:8080/jersey2-webservice";
