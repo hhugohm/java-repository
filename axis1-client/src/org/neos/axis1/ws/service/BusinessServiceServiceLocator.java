@@ -71,7 +71,8 @@ public class BusinessServiceServiceLocator extends org.apache.axis.client.Servic
      * If this service has no port for the given interface,
      * then ServiceException is thrown.
      */
-    public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
+    @SuppressWarnings("rawtypes")
+	public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
             if (org.neos.axis1.ws.service.BusinessService.class.isAssignableFrom(serviceEndpointInterface)) {
                 org.neos.axis1.ws.service.BusinessServiceSoapBindingStub _stub = new org.neos.axis1.ws.service.BusinessServiceSoapBindingStub(new java.net.URL(BusinessService_address), this);
@@ -90,7 +91,8 @@ public class BusinessServiceServiceLocator extends org.apache.axis.client.Servic
      * If this service has no port for the given interface,
      * then ServiceException is thrown.
      */
-    public java.rmi.Remote getPort(javax.xml.namespace.QName portName, Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
+    @SuppressWarnings("rawtypes")
+	public java.rmi.Remote getPort(javax.xml.namespace.QName portName, Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         if (portName == null) {
             return getPort(serviceEndpointInterface);
         }
@@ -109,9 +111,11 @@ public class BusinessServiceServiceLocator extends org.apache.axis.client.Servic
         return new javax.xml.namespace.QName("http://service.ws.axis1.neos.org", "BusinessServiceService");
     }
 
-    private java.util.HashSet ports = null;
+    @SuppressWarnings("rawtypes")
+	private java.util.HashSet ports = null;
 
-    public java.util.Iterator getPorts() {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
             ports.add(new javax.xml.namespace.QName("http://service.ws.axis1.neos.org", "BusinessService"));
