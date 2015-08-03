@@ -7,11 +7,12 @@
 
 package org.neos.axis1.ws.service;
 
+@SuppressWarnings(value = { "rawtypes","unused" })
 public class BusinessServiceSoapBindingStub extends org.apache.axis.client.Stub implements org.neos.axis1.ws.service.BusinessService {
-    private java.util.Vector cachedSerClasses = new java.util.Vector();
-    private java.util.Vector cachedSerQNames = new java.util.Vector();
+	private java.util.Vector cachedSerClasses = new java.util.Vector();
+	private java.util.Vector cachedSerQNames = new java.util.Vector();
     private java.util.Vector cachedSerFactories = new java.util.Vector();
-    private java.util.Vector cachedDeserFactories = new java.util.Vector();
+	private java.util.Vector cachedDeserFactories = new java.util.Vector();
 
     static org.apache.axis.description.OperationDesc [] _operations;
 

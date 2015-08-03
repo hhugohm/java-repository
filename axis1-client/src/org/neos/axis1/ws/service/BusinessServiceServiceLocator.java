@@ -7,6 +7,7 @@
 
 package org.neos.axis1.ws.service;
 
+@SuppressWarnings("serial")
 public class BusinessServiceServiceLocator extends org.apache.axis.client.Service implements org.neos.axis1.ws.service.BusinessServiceService {
 
     public BusinessServiceServiceLocator() {
