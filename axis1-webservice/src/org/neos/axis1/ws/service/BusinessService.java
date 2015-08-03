@@ -1,6 +1,6 @@
 package org.neos.axis1.ws.service;
 
-public class BusinessService {
+public class BusinessService implements IBusinessService {
 	
 	public String getMessageService(String name){
 		System.out.println("entrando en el webrsevice...");
