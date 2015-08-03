@@ -23,7 +23,8 @@ import org.glassfish.jersey.client.ClientConfig;
  */
 public class RestTest {
 	
-	private static final String webServiceURI = "http://localhost:8080/jersey2-webservice";
+	private static final String webServiceURI = 
+									"http://localhost:8080/jersey2-webservice";
 
 	public static void main(String[] args) {
 		ClientConfig clientConfig = new ClientConfig();
@@ -43,7 +44,7 @@ public class RestTest {
 		System.out.println(webTarget.path("rest").path("businessService").request().accept(MediaType.TEXT_XML).get(String.class));
 
 		// html
-		System.out.println(webTarget.path("rest").path("businessService").request().accept(MediaType.TEXT_HTML).get(String.class));
+		System.out.println(webTarget.path("rest").path("businessService").path("messageHTML").request().accept(MediaType.TEXT_HTML).get(String.class));
 		
 		
 		
