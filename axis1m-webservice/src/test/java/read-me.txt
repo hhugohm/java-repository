@@ -1,0 +1,12 @@
+para que no aparezca un warning al ejecutar axis1 en la consola debemos utilizar los jasr:
+
+org.apache.axis.utils.JavaUtils isAttachmentSupported
+WARNING: Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
+
+1.- activation.jar
+2.- javax.mail.jar
+
+http://www.eclipse.org/webtools/wst/components/ws/download_instructions_for_jars.html
+https://java.net/projects/javamail/pages/Home#Download_JavaMail_Release
+http://www.oracle.com/technetwork/java/index-138643.html
+http://www.oracle.com/technetwork/java/javase/downloads/index-135046.html
