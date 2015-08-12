@@ -14,7 +14,7 @@ public class BusinessService implements IBusinessService{
 	@Path("/{param}")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getMessageService(@PathParam("param")String name){
-		System.out.println("entrando en el webrsevice...");
+		System.out.println("entrando en el webrsevice...otro comentario");
 		
 		return "HELLO "+ name + "!, WELCOME TO WEBSERVICE REST ";
 		
