@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:org.neos.axis1.service" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:org.neos.axis1.service" xmlns:intf="urn:org.neos.axis1.service" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+
+   <wsdl:message name="getMessageServiceResponse">
+
+      <wsdl:part name="getMessageServiceReturn" type="soapenc:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMessageServiceRequest">
+
+      <wsdl:part name="name" type="soapenc:string"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="BusinessService">
+
+      <wsdl:operation name="getMessageService" parameterOrder="name">
+
+         <wsdl:input message="impl:getMessageServiceRequest" name="getMessageServiceRequest"/>
+
+         <wsdl:output message="impl:getMessageServiceResponse" name="getMessageServiceResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="BusinessServiceSoapBinding" type="impl:BusinessService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getMessageService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMessageServiceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMessageServiceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="BusinessServiceService">
+
+      <wsdl:port binding="impl:BusinessServiceSoapBinding" name="BusinessService">
+
+         <wsdlsoap:address location="http://localhost:8080/axis1m-webservice/services/BusinessService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
