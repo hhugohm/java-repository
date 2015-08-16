@@ -22,9 +22,27 @@
  <handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
  <handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
- <service name="BusinessService" provider="java:RPC">
-  <parameter name="allowedMethods" value="*"/>
+ <service name="BusinessService" provider="java:RPC" style="wrapped" use="literal">
+  <operation name="getMessageService" qname="ns1:getMessageService" returnQName="ns1:getMessageServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://service.ws.axis1.neos.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns1:name" type="xsd:string"/>
+  </operation>
+  <operation name="celsiusToFarenheit" qname="ns2:celsiusToFarenheit" returnQName="ns2:celsiusToFarenheitReturn" returnType="xsd:float" soapAction="" xmlns:ns2="http://service.ws.axis1.neos.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns2:celsius" type="xsd:float"/>
+  </operation>
+  <operation name="farenheitToCelsius" qname="ns3:farenheitToCelsius" returnQName="ns3:farenheitToCelsiusReturn" returnType="xsd:float" soapAction="" xmlns:ns3="http://service.ws.axis1.neos.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns3:farenheit" type="xsd:float"/>
+  </operation>
+  <operation name="factorial" qname="ns4:factorial" returnQName="ns4:factorialReturn" returnType="xsd:double" soapAction="" xmlns:ns4="http://service.ws.axis1.neos.org" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns4:farenheit" type="xsd:int"/>
+  </operation>
+  <parameter name="allowedMethods" value="getMessageService celsiusToFarenheit farenheitToCelsius factorial"/>
+  <parameter name="typeMappingVersion" value="1.2"/>
+  <parameter name="wsdlPortType" value="BusinessService"/>
   <parameter name="className" value="org.neos.axis1.ws.service.BusinessService"/>
+  <parameter name="wsdlServicePort" value="BusinessService"/>
+  <parameter name="schemaQualified" value="http://service.ws.axis1.neos.org"/>
+  <parameter name="wsdlTargetNamespace" value="http://service.ws.axis1.neos.org"/>
+  <parameter name="wsdlServiceElement" value="BusinessServiceService"/>
  </service>
  <service name="AdminService" provider="java:MSG">
   <parameter name="allowedMethods" value="AdminService"/>
