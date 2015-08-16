@@ -7,7 +7,6 @@
 
 package org.neos.axis1.ws.service;
 
-@SuppressWarnings("serial")
 public class BusinessServiceServiceLocator extends org.apache.axis.client.Service implements org.neos.axis1.ws.service.BusinessServiceService {
 
     public BusinessServiceServiceLocator() {
@@ -23,7 +22,7 @@ public class BusinessServiceServiceLocator extends org.apache.axis.client.Servic
     }
 
     // Use to get a proxy class for BusinessService
-    private java.lang.String BusinessService_address = "http://localhost:8080/axis1-webservice/services/BusinessService";
+    private java.lang.String BusinessService_address = "http://localhost:8080/axis1m-webservice/services/BusinessService";
 
     public java.lang.String getBusinessServiceAddress() {
         return BusinessService_address;
@@ -40,7 +39,7 @@ public class BusinessServiceServiceLocator extends org.apache.axis.client.Servic
         BusinessServiceWSDDServiceName = name;
     }
 
-    public org.neos.axis1.ws.service.BusinessService getBusinessService() throws javax.xml.rpc.ServiceException {
+    public org.neos.axis1.ws.service.BusinessService_PortType getBusinessService() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
             endpoint = new java.net.URL(BusinessService_address);
@@ -51,7 +50,7 @@ public class BusinessServiceServiceLocator extends org.apache.axis.client.Servic
         return getBusinessService(endpoint);
     }
 
-    public org.neos.axis1.ws.service.BusinessService getBusinessService(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public org.neos.axis1.ws.service.BusinessService_PortType getBusinessService(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
             org.neos.axis1.ws.service.BusinessServiceSoapBindingStub _stub = new org.neos.axis1.ws.service.BusinessServiceSoapBindingStub(portAddress, this);
             _stub.setPortName(getBusinessServiceWSDDServiceName());
@@ -73,7 +72,7 @@ public class BusinessServiceServiceLocator extends org.apache.axis.client.Servic
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (org.neos.axis1.ws.service.BusinessService.class.isAssignableFrom(serviceEndpointInterface)) {
+            if (org.neos.axis1.ws.service.BusinessService_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
                 org.neos.axis1.ws.service.BusinessServiceSoapBindingStub _stub = new org.neos.axis1.ws.service.BusinessServiceSoapBindingStub(new java.net.URL(BusinessService_address), this);
                 _stub.setPortName(getBusinessServiceWSDDServiceName());
                 return _stub;
