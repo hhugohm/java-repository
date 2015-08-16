@@ -1,53 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://service.ws.axis1.neos.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.ws.axis1.neos.org" xmlns:intf="http://service.ws.axis1.neos.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions targetNamespace="urn:org.neos.axis1.service" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:org.neos.axis1.service" xmlns:intf="urn:org.neos.axis1.service" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
- <wsdl:types>
-  <schema elementFormDefault="qualified" targetNamespace="http://service.ws.axis1.neos.org" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="getMessageService">
-    <complexType>
-     <sequence>
-      <element name="name" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getMessageServiceResponse">
-    <complexType>
-     <sequence>
-      <element name="getMessageServiceReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-  </schema>
- </wsdl:types>
 
-   <wsdl:message name="getMessageServiceRequest">
+   <wsdl:message name="factorialResponse">
 
-      <wsdl:part element="impl:getMessageService" name="parameters">
+      <wsdl:part name="factorialReturn" type="xsd:double"/>
 
-      </wsdl:part>
+   </wsdl:message>
+
+   <wsdl:message name="farenheitToCelsiusResponse">
+
+      <wsdl:part name="farenheitToCelsiusReturn" type="xsd:float"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="factorialRequest">
+
+      <wsdl:part name="number" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="celsiusToFarenheitResponse">
+
+      <wsdl:part name="celsiusToFarenheitReturn" type="xsd:float"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="farenheitToCelsiusRequest">
+
+      <wsdl:part name="farenheit" type="xsd:float"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="celsiusToFarenheitRequest">
+
+      <wsdl:part name="celsius" type="xsd:float"/>
 
    </wsdl:message>
 
    <wsdl:message name="getMessageServiceResponse">
 
-      <wsdl:part element="impl:getMessageServiceResponse" name="parameters">
+      <wsdl:part name="getMessageServiceReturn" type="soapenc:string"/>
 
-      </wsdl:part>
+   </wsdl:message>
+
+   <wsdl:message name="getMessageServiceRequest">
+
+      <wsdl:part name="name" type="soapenc:string"/>
 
    </wsdl:message>
 
    <wsdl:portType name="BusinessService">
 
-      <wsdl:operation name="getMessageService">
+      <wsdl:operation name="celsiusToFarenheit" parameterOrder="celsius">
 
-         <wsdl:input message="impl:getMessageServiceRequest" name="getMessageServiceRequest">
+         <wsdl:input message="impl:celsiusToFarenheitRequest" name="celsiusToFarenheitRequest"/>
 
-       </wsdl:input>
+         <wsdl:output message="impl:celsiusToFarenheitResponse" name="celsiusToFarenheitResponse"/>
 
-         <wsdl:output message="impl:getMessageServiceResponse" name="getMessageServiceResponse">
+      </wsdl:operation>
 
-       </wsdl:output>
+      <wsdl:operation name="farenheitToCelsius" parameterOrder="farenheit">
+
+         <wsdl:input message="impl:farenheitToCelsiusRequest" name="farenheitToCelsiusRequest"/>
+
+         <wsdl:output message="impl:farenheitToCelsiusResponse" name="farenheitToCelsiusResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMessageService" parameterOrder="name">
+
+         <wsdl:input message="impl:getMessageServiceRequest" name="getMessageServiceRequest"/>
+
+         <wsdl:output message="impl:getMessageServiceResponse" name="getMessageServiceResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="factorial" parameterOrder="number">
+
+         <wsdl:input message="impl:factorialRequest" name="factorialRequest"/>
+
+         <wsdl:output message="impl:factorialResponse" name="factorialResponse"/>
 
       </wsdl:operation>
 
@@ -55,7 +89,43 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:binding name="BusinessServiceSoapBinding" type="impl:BusinessService">
 
-      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="celsiusToFarenheit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="celsiusToFarenheitRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="celsiusToFarenheitResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="farenheitToCelsius">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="farenheitToCelsiusRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="farenheitToCelsiusResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
 
       <wsdl:operation name="getMessageService">
 
@@ -63,13 +133,31 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
          <wsdl:input name="getMessageServiceRequest">
 
-            <wsdlsoap:body use="literal"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
 
          </wsdl:input>
 
          <wsdl:output name="getMessageServiceResponse">
 
-            <wsdlsoap:body use="literal"/>
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="factorial">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="factorialRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="factorialResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
 
          </wsdl:output>
 
@@ -81,7 +169,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdl:port binding="impl:BusinessServiceSoapBinding" name="BusinessService">
 
-         <wsdlsoap:address location="http://localhost:8080/axis1-webservice/services/BusinessService"/>
+         <wsdlsoap:address location="http://localhost:8080/axis1m-webservice/services/BusinessService"/>
 
       </wsdl:port>
 
