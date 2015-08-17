@@ -1,10 +1,12 @@
    Generar wsdl
    Main Class: org.apache.axis.wsdl.Java2WSDL
    Arguments: -o   BusinessService.wsdl  -l"http://localhost:8080/axis1m-webservice/services/BusinessService" -n urn:org.neos.axis1.service  org.neos.axis1.ws.service.BusinessService
+   workspace / other: ${workspace_loc:axis1m-webservice/src/main/webapp/wsdl}
    
    Generar deploy:
    Main Class: org.apache.axis.client.AdminClient
-   Arguments: -llocal:///AdminService deploy.wsdd
+   Arguments: -o  -llocal:///AdminService deploy.wsdd
+   workspace / other: ${workspace_loc:axis1m-webservice/src/main/webapp/WEB-INF}
    
    Generar cliente:
    Main class: org.apache.axis.wsdl.WSDL2Java
