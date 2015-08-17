@@ -53,19 +53,19 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="BusinessService">
 
+      <wsdl:operation name="factorial" parameterOrder="number">
+
+         <wsdl:input message="impl:factorialRequest" name="factorialRequest"/>
+
+         <wsdl:output message="impl:factorialResponse" name="factorialResponse"/>
+
+      </wsdl:operation>
+
       <wsdl:operation name="celsiusToFarenheit" parameterOrder="celsius">
 
          <wsdl:input message="impl:celsiusToFarenheitRequest" name="celsiusToFarenheitRequest"/>
 
          <wsdl:output message="impl:celsiusToFarenheitResponse" name="celsiusToFarenheitResponse"/>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="farenheitToCelsius" parameterOrder="farenheit">
-
-         <wsdl:input message="impl:farenheitToCelsiusRequest" name="farenheitToCelsiusRequest"/>
-
-         <wsdl:output message="impl:farenheitToCelsiusResponse" name="farenheitToCelsiusResponse"/>
 
       </wsdl:operation>
 
@@ -77,11 +77,11 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="factorial" parameterOrder="number">
+      <wsdl:operation name="farenheitToCelsius" parameterOrder="farenheit">
 
-         <wsdl:input message="impl:factorialRequest" name="factorialRequest"/>
+         <wsdl:input message="impl:farenheitToCelsiusRequest" name="farenheitToCelsiusRequest"/>
 
-         <wsdl:output message="impl:factorialResponse" name="factorialResponse"/>
+         <wsdl:output message="impl:farenheitToCelsiusResponse" name="farenheitToCelsiusResponse"/>
 
       </wsdl:operation>
 
@@ -90,6 +90,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:binding name="BusinessServiceSoapBinding" type="impl:BusinessService">
 
       <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="factorial">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="factorialRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="factorialResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
 
       <wsdl:operation name="celsiusToFarenheit">
 
@@ -102,24 +120,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="celsiusToFarenheitResponse">
-
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="farenheitToCelsius">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="farenheitToCelsiusRequest">
-
-            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="farenheitToCelsiusResponse">
 
             <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
 
@@ -145,17 +145,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="factorial">
+      <wsdl:operation name="farenheitToCelsius">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="factorialRequest">
+         <wsdl:input name="farenheitToCelsiusRequest">
 
             <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
 
          </wsdl:input>
 
-         <wsdl:output name="factorialResponse">
+         <wsdl:output name="farenheitToCelsiusResponse">
 
             <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:org.neos.axis1.service" use="encoded"/>
 
