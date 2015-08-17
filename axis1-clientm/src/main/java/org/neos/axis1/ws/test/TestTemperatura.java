@@ -16,9 +16,9 @@ public class TestTemperatura {
 											new BusinessServiceServiceLocator();
 		BusinessService_PortType server = locator.getBusinessService();
 
-		System.out.println("25.5 grados Celcius= " + 
-						server.celsiusToFarenheit(25.5f) + " grados Farenheit");
-		System.out.println("Farenheit= " + server.farenheitToCelsius(77.899994f));
+		System.out.println(" 37 grados Celcius= " + 
+						server.celsiusToFarenheit(37f) + " grados Farenheit");
+		System.out.println("Farenheit= " + server.farenheitToCelsius(98.6f));
 	}
 
 }
