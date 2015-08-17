@@ -41,13 +41,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:message name="getMessageServiceResponse">
 
-      <wsdl:part name="getMessageServiceReturn" type="soapenc:string"/>
+      <wsdl:part name="getMessageServiceReturn" type="xsd:string"/>
 
    </wsdl:message>
 
    <wsdl:message name="getMessageServiceRequest">
 
-      <wsdl:part name="name" type="soapenc:string"/>
+      <wsdl:part name="name" type="xsd:string"/>
 
    </wsdl:message>
 
