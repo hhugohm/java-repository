@@ -7,4 +7,5 @@
    Arguments: -llocal:///AdminService deploy.wsdd
    
    Generar cliente:
-   -p org.neos.axis1.ws.service -o ${workspace_loc:testaxis/src/main/java} http://localhost:8080/axis1m-webservice/services/BusinessService?wsdl
+   Main class: org.apache.axis.wsdl.WSDL2Java
+   Arguments: -p org.neos.axis1.ws.service -o ${workspace_loc:testaxis/src/main/java} http://localhost:8080/axis1m-webservice/services/BusinessService?wsdl
