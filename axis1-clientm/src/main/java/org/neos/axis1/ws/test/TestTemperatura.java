@@ -18,6 +18,7 @@ public class TestTemperatura {
 
 		System.out.println("25.5 grados Celcius= " + 
 						server.celsiusToFarenheit(25.5f) + " grados Farenheit");
+		System.out.println("Farenheit= " + server.farenheitToCelsius(77.899994f));
 	}
 
 }

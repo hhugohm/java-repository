@@ -16,12 +16,12 @@ public class BusinessService implements IBusinessService {
 	}
 	
 	public float celsiusToFarenheit(float celsius) {
-		return (celsius * 9 / 5) + 32;
+		return (celsius * 1.8f+32);
 	}
 
 	
 	public float farenheitToCelsius(float farenheit) {
-		return (farenheit - 32 / 1.8000f);
+		return (farenheit -32/1.8f);
 	}
 	
 	
