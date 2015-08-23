@@ -6,8 +6,22 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.neos.domain.Product;
+
 @Path("/businessService")
 public class BusinessService implements IBusinessService{
+	
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/product/{id}")
+	public Product getProduct(@PathParam("id") String id) {
+		Product p = new Product();
+		p.setId("1561");
+		p.setName("Libreta cuadro grande Scribe");
+		return p;
+	}
+	
 
 	@Override
 	@GET
