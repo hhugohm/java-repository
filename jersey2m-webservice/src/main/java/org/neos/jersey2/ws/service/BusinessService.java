@@ -7,10 +7,16 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.neos.domain.Product;
+import org.neos.ws.business.IMessages;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component("businessService")
 @Path("/businessService")
 public class BusinessService implements IBusinessService{
 	
+	@Autowired
+	private IMessages imessages;
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -18,7 +24,7 @@ public class BusinessService implements IBusinessService{
 	public Product getProduct(@PathParam("id") String id) {
 		Product p = new Product();
 		p.setId("1561");
-		p.setName("Libreta cuadro grande Scribe");
+		p.setName(imessages.getMessageItem());
 		return p;
 	}
 	
