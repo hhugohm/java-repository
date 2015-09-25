@@ -1,18 +1,31 @@
 package org.neos.axis1.ws.test;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.rmi.RemoteException;
 
+import org.apache.axis.client.Service;
+import org.neos.axis1.constants.Constantsws;
 import org.neos.axis1.ws.service.BusinessServiceSoapBindingStub;
 
+/**
+ * 
+ * @author Hector Hidalgo
+ * 23/09/2015
+ * 
+ * contiene la prueba de conexion con los servicios web
+ *
+ */
 public class Axis1Test {
 
-	public static void main(String[] args) throws RemoteException, MalformedURLException {
+	public static void main(String[] args) throws RemoteException,
+														MalformedURLException {
 		
-		java.net.URL endPointURL= new java.net.URL("http://localhost:8080/axis1m-webservice/services/BusinessService");
+		URL endPointURL= new URL(Constantsws.wsdl_businessService);
 		
-		org.apache.axis.client.Service service = new org.apache.axis.client.Service();
-		BusinessServiceSoapBindingStub stub = new BusinessServiceSoapBindingStub(endPointURL,service);
+		Service service = new Service();
+		BusinessServiceSoapBindingStub stub = 
+						new BusinessServiceSoapBindingStub(endPointURL,service);
 		System.out.println(stub.getMessageService("HUGO"));
 		
 	}
