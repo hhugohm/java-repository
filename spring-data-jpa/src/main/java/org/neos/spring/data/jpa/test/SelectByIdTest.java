@@ -14,7 +14,7 @@ public class SelectByIdTest {
 		
 		 EmployeeDao dao = (EmployeeDao) context.getBean("registrationBean");
 		
-		Employee employee= dao.getEmployeeRepository().findByidEmployee(2);
+		Employee employee= dao.getEmployeeRepository().findByidEmployee(1);
 		System.out.println("Employee: "+ employee.getIdEmployee() 
 		+ " "+employee.getName()
 		+ " "+employee.getLastName());
