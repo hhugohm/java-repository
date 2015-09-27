@@ -1,6 +1,5 @@
 package org.neos.spring.data.jpa.test;
 
-import java.util.List;
 
 import org.neos.spring.data.jpa.dao.EmployeeDao;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
