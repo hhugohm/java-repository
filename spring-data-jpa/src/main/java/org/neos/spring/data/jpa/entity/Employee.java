@@ -9,6 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author Hector Hugo Midalgo
+ * 27/09/2015
+ * This clase has a mapping for EMPLOYEES table in RH schema
+ *
+ */
 @Entity
 @Table(name="EMPLOYEES")
 public class Employee implements Serializable {
