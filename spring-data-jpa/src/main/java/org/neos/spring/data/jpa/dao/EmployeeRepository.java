@@ -35,7 +35,10 @@ public interface EmployeeRepository extends  JpaRepository<Employee, Integer>{
 	@Modifying
 	@Transactional(timeout = 10)
 	@Query("UPDATE Employee e set e.name = ?1, e.lastName = ?2 where e.idEmployee = ?3")
-	void setEmployeeInfoById(String name, String lastName, Integer idEmployee);
+	public void setEmployeeInfoById(String name, String lastName, Integer idEmployee);
+	
+	@Query(value = "SELECT count(*)  FROM EMPLOYEES e WHERE e.name LIKE CONCAT('%',:name,'%') GROUP BY e.name", nativeQuery = true)
+	public int getNumberGroupByName(@Param("name")String name);
 	
 
 }
