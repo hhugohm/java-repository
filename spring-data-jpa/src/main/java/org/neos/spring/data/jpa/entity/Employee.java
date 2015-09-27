@@ -27,7 +27,7 @@ public class Employee implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_EMPLOYEE")
-	private int idEmployee;
+	private Integer idEmployee;
 	
 	@Column(name="NAME")
 	private String name;
@@ -43,10 +43,10 @@ public class Employee implements Serializable {
 	}
 	
 	
-	public int getIdEmployee() {
+	public Integer getIdEmployee() {
 		return idEmployee;
 	}
-	public void setIdEmployee(int idEmployee) {
+	public void setIdEmployee(Integer idEmployee) {
 		this.idEmployee = idEmployee;
 	}
 	public String getName() {

@@ -3,6 +3,15 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
  http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+ 
+ <!--  
+ <persistence-unit name="neosdiscom-jp" transaction-type="RESOURCE_LOCAL">
+	<description>My Persistence Unit</description>
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<properties>
+			<property name="eclipselink.weaving" value="false"/>
+	</persistence-unit>
+	-->
 
 	<persistence-unit name="neosdiscom-jp" transaction-type="RESOURCE_LOCAL">
 	<description>My Persistence Unit</description>
@@ -12,7 +21,7 @@
 			<property name="hibernate.show_sql" value="true"/>
 		</properties>
 	</persistence-unit>
-	
+ 	
 	<!--
 	<persistence>
   <persistence-unit name="prod" transaction-type="JTA">
