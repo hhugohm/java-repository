@@ -10,7 +10,7 @@
 	<description>My Persistence Unit</description>
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		  
-		<class>org.neos.spring.data.jpa.entity.Employee</class>
+		<class>org.neos.spring.data.jpa.domain.Employee</class>
 		
 		
 		<properties>

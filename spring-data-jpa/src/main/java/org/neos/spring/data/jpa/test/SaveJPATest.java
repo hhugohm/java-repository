@@ -1,7 +1,7 @@
 package org.neos.spring.data.jpa.test;
 
 import org.neos.spring.data.jpa.dao.EmployeeDao;
-import org.neos.spring.data.jpa.entity.Employee;
+import org.neos.spring.data.jpa.domain.Employee;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SaveJPATest {

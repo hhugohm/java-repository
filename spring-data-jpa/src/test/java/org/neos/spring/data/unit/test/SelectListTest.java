@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.neos.spring.data.jpa.dao.EmployeeDao;
-import org.neos.spring.data.jpa.entity.Employee;
+import org.neos.spring.data.jpa.domain.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;

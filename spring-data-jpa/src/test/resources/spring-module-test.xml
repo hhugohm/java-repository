@@ -27,7 +27,7 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
-		<property name="packagesToScan" value="org.neos.spring.data.jpa.entity" />
+		<property name="packagesToScan" value="org.neos.spring.data.jpa.domain" />
 		<property name="jpaDialect">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
 		</property>
