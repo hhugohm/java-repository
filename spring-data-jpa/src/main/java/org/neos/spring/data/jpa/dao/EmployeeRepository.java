@@ -2,8 +2,7 @@ package org.neos.spring.data.jpa.dao;
 
 import java.util.List;
 
-
-import org.neos.spring.data.jpa.entity.Employee;
+import org.neos.spring.data.jpa.domain.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
