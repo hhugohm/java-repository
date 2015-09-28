@@ -22,13 +22,16 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="persistenceUnitName" value="neosdiscom-jp" />
-		<!--  
+		
+	
+		<!--  Habilitar solo si se requiere soporte Eclipse Toplink -->
+		<!-- 
 		<property name="jpaPropertyMap">
 			<map>
 				<entry key="eclipselink.weaving" value="false" />
 			</map>
 		</property>
-		-->
+		 -->
 	</bean>
 
 	<!-- Transaction Manager -->
