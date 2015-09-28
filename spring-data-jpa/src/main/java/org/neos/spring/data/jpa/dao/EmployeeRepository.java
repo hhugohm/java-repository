@@ -26,7 +26,6 @@ public interface EmployeeRepository extends  JpaRepository<Employee, Integer>{
 	@Query("SELECT e FROM #{#entityName} e WHERE e.name = ?1")
 	public List<Employee> findByname(String name);
 	
-	
 	@Query("SELECT e FROM Employee e WHERE e.name  LIKE CONCAT('%',:name,'%') ORDER BY e.name")
 	public List<Employee> findByEmployeeWithPartOfName(@Param("name") String name);
 	
@@ -38,5 +37,4 @@ public interface EmployeeRepository extends  JpaRepository<Employee, Integer>{
 	@Query(value = "SELECT count(*)  FROM EMPLOYEES e WHERE e.name LIKE CONCAT('%',:name,'%') GROUP BY e.name", nativeQuery = true)
 	public int getNumberGroupByName(@Param("name")String name);
 	
-
 }
