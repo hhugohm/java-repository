@@ -23,8 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface EmployeeRepository extends  JpaRepository<Employee, Integer>{
 
 	public Employee findByidEmployee(Integer id);
-	
-	@SuppressWarnings("el-syntax")
+
 	@Query("SELECT e FROM #{#entityName} e WHERE e.name = ?1")
 	public List<Employee> findByname(String name);
 	
