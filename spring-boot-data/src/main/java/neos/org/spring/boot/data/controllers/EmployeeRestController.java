@@ -56,7 +56,7 @@ public class EmployeeRestController {
 		return lstEmployee;
 	}
 	
-	@RequestMapping(value = "createEmployee",method = RequestMethod.POST)
+	@RequestMapping(value = "createEmployee",method = RequestMethod.POST,produces = "text/plain; charset=utf-8")
 	public @ResponseBody String saveEmployee(@PathParam("name") String name,@PathParam("lastName")String lastName) {
 		System.out.println("EN EL CONTROLADOR:::::::");
 		System.out.println("name: "+ name);
