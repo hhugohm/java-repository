@@ -1,5 +1,7 @@
 package neos.org.spring.boot.data.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,10 @@ public class EmployeeDaoImpl implements EmployeeService {
 	@Override
 	public Employee findByEmployeeId(Integer id) {
 		return employeeDao.findByIdEmployee(id);
+	}
+	
+	@Override
+	public List<Employee> allEmployees() {
+		return employeeDao.findAll();
 	}
 }

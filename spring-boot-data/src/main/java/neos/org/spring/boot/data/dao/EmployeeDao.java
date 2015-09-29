@@ -23,6 +23,9 @@ import neos.org.spring.boot.data.domain.Employee;
 public interface EmployeeDao extends  JpaRepository<Employee, Integer>{
 
 	public Employee findByIdEmployee(Integer id);
+	
+	@Query(value = "SELECT e.id_employee,e.name,e.last_name  FROM EMPLOYEES e WHERE e.id_employee=?1", nativeQuery = true)
+	public Employee findEmployeeById(Integer id);
 
 	@Query("SELECT e FROM #{#entityName} e WHERE e.name = ?1")
 	public List<Employee> findByname(String name);
