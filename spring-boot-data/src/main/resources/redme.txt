@@ -1,3 +1,5 @@
 Esta es la URL de prueba
 http://localhost:8080/get-by-id?id=1
-http://localhost:8080/employee/ltsEmployees
+http://localhost:8080/employee/getEmployeeById/1
+http://localhost:8080/employee/getAllEmployees
+http://localhost:8080/employee/createEmployee

@@ -8,5 +8,6 @@ public interface EmployeeService  {
 	
 	public Employee findByEmployeeId(Integer id);
 	public List<Employee> allEmployees();
+	public void saveEmployee(Employee employee);
 
 }

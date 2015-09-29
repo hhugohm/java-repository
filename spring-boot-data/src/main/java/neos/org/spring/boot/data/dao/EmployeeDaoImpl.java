@@ -22,4 +22,9 @@ public class EmployeeDaoImpl implements EmployeeService {
 	public List<Employee> allEmployees() {
 		return employeeDao.findAll();
 	}
+	
+	@Override
+	public void saveEmployee(Employee employee) {
+		employeeDao.save(employee);
+	}
 }
