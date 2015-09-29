@@ -12,7 +12,7 @@ public class SaveJPATest {
 		
 		 EmployeeDao dao = (EmployeeDao) context.getBean("registrationBean");
 		 
-		 Employee employee = new Employee("HECTOR","MARTINEZ");
+		 Employee employee = new Employee("JANET","HIDALGO");
 		 dao.getEmployeeRepository().save(employee);
 		 
 		 context.close();
