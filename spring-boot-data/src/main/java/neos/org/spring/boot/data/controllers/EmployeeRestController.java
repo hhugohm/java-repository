@@ -2,6 +2,7 @@ package neos.org.spring.boot.data.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class EmployeeRestController {
 
 	@RequestMapping(value = "/getEmployeeById/{id}",
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public Employee getEmployeeId(@PathVariable("id")Integer id) {
+	public Employee getEmployeeId(@PathVariable("id")Integer id,HttpServletResponse response) {
 		Employee employee=null;;
 		try {
 			employee = employeeDao.findByEmployeeId(id);
@@ -39,6 +40,10 @@ public class EmployeeRestController {
 			ex.printStackTrace();
 			return employee;
 		}
+		 response.setHeader("Access-Control-Allow-Origin", "*");
+         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+         response.setHeader("Access-Control-Max-Age", "3600");
+         response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
 		return employee;
 	}
 	@RequestMapping(value = "getAllEmployees",
