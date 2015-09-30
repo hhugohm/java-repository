@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>Spring MVC - Ajax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+      body { background-color: #eee; font: helvetica; }
+      #container { width: 500px; background-color: #fff; margin: 30px auto; padding: 30px; border-radius: 5px; box-shadow: 5px; }
+      .green { font-weight: bold; color: green; }
+      .message { margin-bottom: 10px; }
+      label { width:70px; display:inline-block;}
+      .hide { display: none; }
+      .error { color: red; font-size: 0.8em; }
+    </style>
+  </head>
+  <body>
+   
+  <div id="container">
+   
+    <h1>EMPLOYEE</h1>
+    <p>This page demonstrates Spring MVC's powerful Ajax functionality. Retrieve a
+     employee by ID.
+    </p>
+     
+    <h2>Get Employee By ID</h2>
+    <form id="idForm">
+      <div class="error hide" id="idError">Please enter a valid ID in range 1-3</div>
+      <label for="personId">ID (1-3): </label><input name="id" id="personId" value="" type="number" />
+      <input type="submit" value="Get Person By ID" /> <br /><br/>
+      <div id="personIdResponse"> </div>
+    </form>
+     
+    <hr/>
+     
+    <h2>Get ALL Employees</h2>
+    <form id="listForm">
+      <input type="submit" value="Get All Employees" /> <br /><br/>
+      <input name="id" id="personId" value="" type="hidden" />
+      <div id="personListResponse"> </div>
+    </form>
+     
+    <h2>Submit new Person</h2>
+    <form id="newPersonForm">
+      <label for="nameInput">Name: </label>
+      <input type="text" name="name" id="name" />
+      <br/>
+       
+      <label for="ageInput">LastName: </label>
+      <input type="text" name="lastName" id="lastName" />
+      <br/>
+      <input type="submit" value="Save Person" /><br/><br/>
+      <div id="personFormResponse" class="green"> </div>
+    </form>
+  </div>
+   
+   
+  <script type="text/javascript">
+   
+    $(document).ready(function() {
+       
+      // Request Employee by ID
+      $('#idForm').submit(function(e) {
+        var personId = +$('#personId').val();
+        if(!validatePersonId(personId)) 
+          return false;
+       		$.ajax({
+        		type: "GET",  
+      			url: "http://localhost:8080/employee/getEmployeeById/"+personId,  
+       			dataType: "json",  
+       			success: function(data){  
+       			 $('#personIdResponse').text('Id: '+ data.idEmployee + ' name: ' + data.name+ ' last name: '+data.lastName);
+    			 },  
+      		 	error: function(e){  
+         			alert('Error: ' + e);  
+       					}  
+    			});
+        
+        e.preventDefault(); // prevent actual form submit
+      });
+      
+      
+       // Request All Employees
+      $('#listForm').submit(function(e) {
+       		$.ajax({
+       		 	cache: false,
+        		type: "GET",  
+      			url: "http://localhost:8080/employee/getAllEmployees",  
+       			dataType: "json",  
+       			success: function(data){
+       			alert(data)  
+       			for(i = 0; i < data.length; i++) {
+    					 $('#personListResponse').append('Id: '+ data[i].idEmployee + ' name: ' + data[i].name+ ' last name: '+data[i].lastName + '<br />');
+					}
+    			 },  
+      		 	error: function(e){  
+         			alert('Error: ' + e);  
+       					}  
+    			});
+        
+        e.preventDefault(); // prevent actual form submit
+      });
+       
+      // Save Person AJAX Form Submit
+      $('#newPersonForm').submit(function(e) {
+      		var name = $('#name').val();
+      		var lastName = $('#lastName').val();
+      		var json = { "name" : name, "lastName" : lastName};
+      		alert(json);
+        $.ajax({
+        	type: 'POST',
+        	contentType: 'application/json',
+        	//url: "http://localhost:8080/employee/createEmployee",
+        	url: "http://localhost:8080/employee/createJsonEmployee",
+        	dataType: "text",
+        	//data:  $("#newPersonForm").serialize(), // serializes the form's elements.
+        	 data:  JSON.stringify(json),
+        	success: function(data){
+            	alert(data);
+        	},
+        	error: function(data){
+            	alert('Error: ' + data);
+        	}
+  		 });
+         
+        e.preventDefault(); // prevent actual form submit and page reload
+      });
+       
+    });
+     
+    function validatePersonId(personId) {
+      console.log(personId);
+      if(personId == undefined || personId <= 0 || personId > 15) {
+        $('#idError').show();
+        return false;
+      }
+      else {
+        $('#idError').hide();
+        return true;
+      }
+    }
+  </script>
+   
+  </body>
+</html>
