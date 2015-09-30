@@ -24,10 +24,17 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<!-- dependecia para JSON -->
+		 
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+      <!--  
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        -->
         <!-- Dependencia para spring data-jpa -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,6 +45,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+		
 	</dependencies>
 
 	<properties>

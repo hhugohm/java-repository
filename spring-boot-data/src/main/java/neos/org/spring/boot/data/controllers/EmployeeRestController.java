@@ -85,10 +85,10 @@ public class EmployeeRestController {
 	}
 	
 	@RequestMapping(value = "createJsonEmployee",
-			method = {RequestMethod.GET, RequestMethod.POST},
+			method = {RequestMethod.POST},
 			consumes= MediaType.APPLICATION_JSON_VALUE,
 			produces = "text/plain; charset=utf-8")
-	public @ResponseBody String saveJsonEmployee(@RequestBody Employee employee) {
+	public @ResponseBody String saveJsonEmployee(@RequestBody Employee employee,HttpServletResponse response) {
 		System.out.println("EN EL CONTROLADOR JSON:::::::");
 		System.out.println("employee-name: "+ employee.getName());
 		System.out.println("employee-last name"+employee.getLastName());
@@ -100,6 +100,10 @@ public class EmployeeRestController {
 			ex.printStackTrace();
 			return "faild";
 		}
+		response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        response.setHeader("Access-Control-Max-Age", "3600");
+        response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
 		return "successful";
 	}
 
