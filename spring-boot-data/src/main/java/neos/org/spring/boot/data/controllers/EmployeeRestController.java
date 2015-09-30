@@ -6,6 +6,7 @@ import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -62,6 +63,22 @@ public class EmployeeRestController {
 		System.out.println("name: "+ name);
 		System.out.println("last name"+lastName);
 		Employee employee = new Employee(name,lastName);
+		
+		try {
+			employeeDao.saveEmployee(employee);
+		
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return "faild";
+		}
+		return "successful";
+	}
+	
+	@RequestMapping(value = "createJsonEmployee",method = RequestMethod.POST,produces = "text/plain; charset=utf-8")
+	public @ResponseBody String saveJsonEmployee(@RequestBody Employee employee) {
+		System.out.println("EN EL CONTROLADOR:::::::");
+		System.out.println("employee-name: "+ employee.getName());
+		System.out.println("employee-last name"+employee.getLastName());
 		
 		try {
 			employeeDao.saveEmployee(employee);
