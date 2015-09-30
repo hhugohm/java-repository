@@ -27,7 +27,8 @@ public class EmployeeRestController {
 	private  EmployeeDao dao;
 	
 
-	@RequestMapping(value = "/getEmployeeById/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/getEmployeeById/{id}",
+			produces = MediaType.APPLICATION_JSON_VALUE)
 	public Employee getEmployeeId(@PathVariable("id")Integer id) {
 		Employee employee=null;;
 		try {
@@ -40,7 +41,8 @@ public class EmployeeRestController {
 		}
 		return employee;
 	}
-	@RequestMapping(value = "getAllEmployees",produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "getAllEmployees",
+			produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Employee> getLtsEmployees() {
 		List<Employee> lstEmployee=null;;
 		try {
@@ -57,8 +59,11 @@ public class EmployeeRestController {
 		return lstEmployee;
 	}
 	
-	@RequestMapping(value = "createEmployee",method = RequestMethod.POST,produces = "text/plain; charset=utf-8")
-	public @ResponseBody String saveEmployee(@PathParam("name") String name,@PathParam("lastName")String lastName) {
+	@RequestMapping(value = "createEmployee",
+			method = RequestMethod.POST,
+			produces = "text/plain; charset=utf-8")
+	public @ResponseBody String saveEmployee(@PathParam("name") String name,
+										@PathParam("lastName")String lastName) {
 		System.out.println("EN EL CONTROLADOR:::::::");
 		System.out.println("name: "+ name);
 		System.out.println("last name"+lastName);
@@ -74,9 +79,12 @@ public class EmployeeRestController {
 		return "successful";
 	}
 	
-	@RequestMapping(value = "createJsonEmployee",method = RequestMethod.POST,produces = "text/plain; charset=utf-8")
+	@RequestMapping(value = "createJsonEmployee",
+			method = {RequestMethod.GET, RequestMethod.POST},
+			consumes= MediaType.APPLICATION_JSON_VALUE,
+			produces = "text/plain; charset=utf-8")
 	public @ResponseBody String saveJsonEmployee(@RequestBody Employee employee) {
-		System.out.println("EN EL CONTROLADOR:::::::");
+		System.out.println("EN EL CONTROLADOR JSON:::::::");
 		System.out.println("employee-name: "+ employee.getName());
 		System.out.println("employee-last name"+employee.getLastName());
 		
