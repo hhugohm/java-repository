@@ -3,3 +3,4 @@ http://localhost:8080/get-by-id?id=1
 http://localhost:8080/employee/getEmployeeById/1
 http://localhost:8080/employee/getAllEmployees
 http://localhost:8080/employee/createEmployee
+http://localhost:8080/employee/createJsonEmployee
