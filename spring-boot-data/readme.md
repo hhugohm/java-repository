@@ -1,4 +1,4 @@
-## Use JPA + Hibernate + MySQL in Spring Boot
+## Spring Boot data-jpa + Spring Rest 
 
 
 ### Usage
