@@ -16,12 +16,11 @@ Open the `application.properties` file and set your own configurations for the
 database connection.
 
 #### Prerequisites
+- Eclipse mars
 - Java 8
 - Maven 3
 - Mysql 5.x
 - jqyery 2.x
-- Eclipse mars
-
 
 #### From terminal
 
