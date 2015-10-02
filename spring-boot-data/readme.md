@@ -1,4 +1,4 @@
-## Spring Boot data-jpa + Spring Rest 
+## Spring Boot data-jpa + mysql + Spring Rest + jquery
 
 
 ### Usage
