@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello jQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+    		$.ajax({
+    		
+                       dataType: 'json',
+                        headers: {
+                            Accept:"application/json",
+                            "Access-Control-Allow-Origin": "*"
+                        },
+                       
+    		
+        		type: "GET",  
+      			url: "http://localhost:8080/employee/searchById/1",  
+       			dataType: "json",  
+       			success: function(data){  
+       						$('.greeting-id').append(data.idEmployee);
+       						$('.greeting-content').append(data.name);
+       						$('.greeting-content2').append(data.lastName);
+    						},  
+      		 	error: function(e){  
+         			alert('Error: ' + e);  
+       					}  
+    				});
+			});
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <p class="greeting-id">The ID is </p>
+            <p class="greeting-content">The content is </p>
+             <p class="greeting-content2">The content is </p>
+        </div>
+    </body>
+</html>
