@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- CONSOLE APPENDER -->
+    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <param name="target" value="System.out" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{dd/MM/yyyy HH:mm:ss}] [%p] [%c]:%L - %m%n" />
+        </layout>
+    </appender>
+
+    <!-- Poner en TRACE para ver los queries y resultados de la Base-->
+    <logger name="com.okteam.okprototype.backend.dao">
+        <level value="INFO" />
+        <appender-ref ref="consoleAppender" />
+    </logger>
+
+    <!-- Poner en DEBUG si se quiere ver la informacion de los request en la consola -->
+    <logger name="requestInfoConsoleLogger" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="consoleAppender" />
+    </logger>
+    
+</log4j:configuration>
